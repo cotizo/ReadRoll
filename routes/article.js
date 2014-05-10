@@ -9,7 +9,7 @@ function articlesGet(db) {
         Article.find(function (err, entries) {
             if (err) {
                 console.error(err);
-                res.json([]);
+                res.json(500, []);
             }
 
             res.json(entries);
@@ -19,7 +19,32 @@ function articlesGet(db) {
 
 function articleGet(db) {
     return function (req, res) {
-        res.send(501);
+        var id = req.params.id;
+        Article.find({"_id": id}, function (err, articles) {
+            if (err) {
+                console.error(err);
+                res.json(500, {});
+                return;
+            }
+            if (Array.isArray(articles)) {
+                if (articles.length > 1) {
+                    console.error("invalid set of articles: " + articles);
+                    res.json(400, {"error": "invalid set of articles"});
+                    return;
+                }
+                if (articles.length == 0) {
+                    res.json(404, {"error": "no article found"});
+                    return;
+                }
+
+                res.json(articles[0]);
+            } else if (typeof articles === "object") {
+                res.json(articles);
+            } else {
+                console.error("invalid set of articles: " + articles);
+                res.json(400, {"error": "invalid set of articles"});
+            }
+        });
     };
 }
 
