@@ -1,1 +1,13 @@
-Hello!
+{{#each articles}}
+<div class="article">
+    <div class="article-title">{{title}}</div>
+    <div class="article-content">{{content}}</div>
+    <div class="article-tags">
+        Tags:
+        {{#each tags}}
+            <span class="article-tag">{{this}}</span>
+        {{/each}}
+    </div>
+    <div class="article-url"><a href="{{url}}">{{url}}</a></div>
+</div>
+{{/each}}

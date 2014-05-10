@@ -3,6 +3,7 @@ var http = require('http');
 var path = require('path');
 var handlebars = require('express3-handlebars');
 var article = require('./routes/article');
+var webpage = require('./routes/webpage');
 
 module.exports = function (db) {
     var app = express();
@@ -24,13 +25,11 @@ module.exports = function (db) {
         app.use(express.errorHandler());
     }
 
-    // routes
-    app.get('/', function (req, res) {
-        res.render('index');
-    });
+    // webpage
+    app.get('/', webpage.home(db));
 
+    // api
     app.get('/articles', article.all(db));
-
     app.get('/article/:id', article.get(db));
     app.put('/article', article.put(db));
     app.post('/article/:id', article.post(db));

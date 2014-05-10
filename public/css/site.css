@@ -1,0 +1,33 @@
+body {
+    background-color: #ececec;
+}
+
+.article {
+    background-color: #ffffff;
+    border-right: 1px solid #cacaca;
+    border-bottom: 1px solid #cacaca;
+    box-shadow: 1px 1px 1px #cacaca;
+    padding: 5px;
+    margin: 10px 0;
+}
+
+.article-title {
+    font-size: large;
+    display: inline-block;
+    border-bottom: 1px solid #666666;
+}
+
+.article-content {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.article-tags {
+    font-size: small;
+    margin-top: 2px;
+    border-top: 1px solid #eee;
+}
+
+.article-url {
+    font-size: small;
+}
