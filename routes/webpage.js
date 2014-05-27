@@ -6,7 +6,7 @@ var Article = require('../Article');
 
 function home(db) {
     return function (req, res) {
-        Article.find(function (err, articles) {
+        Article.find().sort('-date').exec(function (err, articles) {
             if (err) {
                 console.error(err);
                 res.send(404);

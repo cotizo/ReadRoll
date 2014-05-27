@@ -6,7 +6,7 @@ var Article = require('../Article');
 
 function articlesGet(db) {
     return function (req, res) {
-        Article.find(function (err, entries) {
+        Article.find().sort('-date').exec(function (err, entries) {
             if (err) {
                 console.error(err);
                 res.json(500, []);
@@ -60,6 +60,7 @@ function articlePut(db) {
         var content = req.body.content;
         var url = req.body.url;
         var tags = req.body.tags;
+        var date = new Date();
 
         if (typeof title === "undefined") {
             title = "";
@@ -88,7 +89,8 @@ function articlePut(db) {
             title: title,
             content: content,
             url: url,
-            tags: tags
+            tags: tags,
+            date: date
         });
         article.save(function (err) {
             if (err) {
