@@ -12,6 +12,13 @@ body {
     margin: 10px 0;
 }
 
+.sidebar {
+    text-align: justify;
+    background-color: #ffffff;
+    padding: 5px;
+    margin: 10px 0;
+}
+
 .article-title {
     font-size: large;
     display: inline-block;
