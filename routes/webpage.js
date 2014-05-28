@@ -3,6 +3,10 @@
  */
 
 var Article = require('../Article');
+var marked = require('marked');
+marked.setOptions({
+    sanitize: true
+});
 
 function home(db) {
     return function (req, res) {
@@ -13,6 +17,10 @@ function home(db) {
                 return;
             }
 
+            articles = articles.map(function (x) {
+                x.content = marked(x.content);
+                return x;
+            });
             res.render('index', {articles: articles});
         });
     }
