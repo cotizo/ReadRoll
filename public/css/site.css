@@ -4,10 +4,10 @@ body {
 
 .article {
     background-color: #ffffff;
-    border-right: 1px solid #cacaca;
+/*    border-right: 1px solid #cacaca;
     border-bottom: 1px solid #cacaca;
     border-radius: 5px;
-    box-shadow: 1px 1px 1px #cacaca;
+    box-shadow: 1px 1px 1px #cacaca; */
     padding: 5px;
     margin: 10px 0;
 }
@@ -15,7 +15,7 @@ body {
 .sidebar {
     text-align: justify;
     background-color: #ffffff;
-    padding: 5px;
+    padding: 5px 10px;
     margin: 10px 0;
 }
 
@@ -38,4 +38,9 @@ body {
 
 .article-url {
     font-size: small;
+}
+
+#logo {
+    padding: 5px 10px;
+    background-color: white;
 }
