@@ -1,5 +1,26 @@
+/*
+ * Color palette & co
+ */
 body {
-    background-color: #ececec;
+    background-color: #2f3940;
+    color: #ebb741;
+    font-family: "Lucida Grande", "Trebuchet MS", sans-serif;
+}
+
+a {
+    color: #29caca;
+}
+
+/*
+ * Fixing bootstrap issues
+ */
+.btn-success, .btn-success:hover {
+    background-color: #29caca;
+    color: #000000;
+}
+
+blockquote {
+    font-size: medium;
 }
 
 .col-lg-8, .col-lg-4 {
@@ -7,12 +28,10 @@ body {
 
 }
 
+/*
+ * Components
+ */
 .article {
-    background-color: #ffffff;
-/*    border-right: 1px solid #cacaca;
-    border-bottom: 1px solid #cacaca;
-    border-radius: 5px;
-    box-shadow: 1px 1px 1px #cacaca; */
     padding: 12px;
     margin: 10px 0px;
 }
@@ -23,11 +42,8 @@ body {
     }
 }
 
-
-
 .sidebar-content {
     text-align: justify;
-    background-color: #ffffff;
     padding: 5px 10px;
     margin: 10px 0;
 }
@@ -49,15 +65,27 @@ body {
     border-top: 1px solid #eee;
 }
 
+.article-tag:after {
+    content: '; ';
+}
+.article-tag:last-child:after {
+    content: '';
+}
+
 .article-url {
     font-size: small;
 }
 
 .header {
+    font-size: xx-large;
     margin-top: 5px;
     padding: 5px 10px;
-    background-color: white;
 }
+
+.header > a {
+    color: #ebb741;
+}
+
 
 #logo {
     height: 70px;
