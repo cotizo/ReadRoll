@@ -77,14 +77,41 @@ blockquote {
 }
 
 .header {
-    font-size: xx-large;
     margin-top: 5px;
     padding: 5px 10px;
 }
 
-.header > a {
+.brand {
+    font-size: x-large;
+}
+
+.header > ul > li > a {
     color: #ebb741;
 }
+
+.header > ul {
+    padding-left: 0px !important;
+    list-style-image: none;
+    list-style-position: outside;
+    list-style-type: none;
+    height: 36px;
+}
+.header > ul > li{
+    display: inline;
+    list-style-type: none;
+    line-height: 36px;
+}
+
+.header > ul :not(:first-child){
+    margin-left: 12px;
+    padding-left: 12px;
+    border-left: 1px solid #ebb741;
+}
+
+.header .submit > a {
+    color: #29caca;
+}
+
 
 
 #logo {

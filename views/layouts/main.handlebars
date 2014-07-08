@@ -9,59 +9,61 @@
 
 </head>
 <body>
-    <div class="row">
-        <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
-            <div class="row header">
-                <a href="/">Read roll</a>
+<div class="row">
+    <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="header">
+                    <ul>
+                        <li class="brand">
+                            <a href="/">READ ROLL</a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/mihai-sima/readroll">ON GITHUB</a>
+                        </li>
+                        <li class="submit">
+                            <a href="#" data-toggle="modal" data-target="#new-post">SUBMIT</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-4 col-md-push-8 col-lg-4 col-lg-push-8 sidebar">
-                    <div class="sidebar-content">
-                        <h2>Read Roll</h2>
-                        <p>
-                            Welcome! I am using this small website to keep a record of all the interesting pages I might use in the
-                            future. The project is currently hosted on <a href="https://github.com/mihai-sima/readroll">github</a>,
-                            so you can take it for a spin if you want!
-                        </p>
-                        <hr/>
-                        <button class="btn btn-success" data-toggle="modal" data-target="#new-post">New post</button>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                {{{body}}}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="new-post" role="dialog" aria-hidden="true" aria-labelledby="new-post-label">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h2 class="modal-title" id="new-post-label">New post</h2>
+            </div>
+            <div class="modal-body">
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="new-post-title" placeholder="title"/>
                     </div>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-8 col-md-pull-4 col-lg-8 col-lg-pull-4">
-                    {{{body}}}
-                </div>
+                    <div class="form-group">
+                        <textarea rows=10 class="form-control" id="new-post-body" placeholder="body"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="new-post-tags" placeholder="tags"/>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="new-post-url" placeholder="http://"/>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" onclick="newPost()">Post</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Dismiss</button>
             </div>
         </div>
     </div>
-    <div class="modal fade" id="new-post" role="dialog" aria-hidden="true" aria-labelledby="new-post-label">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h2 class="modal-title" id="new-post-label">New post</h2>
-                </div>
-                <div class="modal-body">
-                    <form role="form">
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="new-post-title" placeholder="title"/>
-                        </div>
-                        <div class="form-group">
-                            <textarea rows=10 class="form-control" id="new-post-body" placeholder="body"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="new-post-tags" placeholder="tags"/>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="new-post-url" placeholder="http://"/>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-success" onclick="newPost()">Post</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Dismiss</button>
-                </div>
-            </div>
-        </div>
-    </div>
+</div>
 </body>
 </html>
