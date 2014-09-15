@@ -41,6 +41,18 @@ function home(db) {
     }
 }
 
+function article(db) {
+    return function (req, res) {
+        var id = req.params.id;
+        Article.find({_id: id}, function (err, article) {
+            if (err) { console.error(err); res.send(400); return; }
+            if (article.length !== 1) { res.send(404); return; }
+            res.render('article', {article: article[0]});
+        })
+    }
+}
+
 module.exports = {
-    home: home
+    home: home,
+    article: article
 };

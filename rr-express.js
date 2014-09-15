@@ -27,12 +27,13 @@ module.exports = function (db) {
 
     // webpage
     app.get('/', webpage.home(db));
+    app.get('/article/:id', webpage.article(db));
 
     // api
-    app.get('/articles', article.all(db));
+    /* app.get('/articles', article.all(db));
     app.get('/article/:id', article.get(db));
     app.put('/article', article.put(db));
-    app.post('/article/:id', article.post(db));
+    app.post('/article/:id', article.post(db)); */
 
 
     http.createServer(app).listen(app.get('port'), function () {
