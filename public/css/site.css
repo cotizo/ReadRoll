@@ -53,6 +53,10 @@ blockquote {
     display: inline-block;
     border-bottom: 1px solid #666666;
 }
+.article-title > a {
+    color: #ebb741;
+    text-decoration: none;
+}
 
 .article-content {
     padding-top: 5px;
