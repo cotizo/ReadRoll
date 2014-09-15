@@ -10,18 +10,33 @@ marked.setOptions({
 
 function home(db) {
     return function (req, res) {
-        Article.find().sort('-date').exec(function (err, articles) {
-            if (err) {
-                console.error(err);
-                res.send(404);
-                return;
-            }
+        var LIMIT = 10;
+        var page = req.query.page ? req.query.page : 1;
+        var toSkip = (page - 1) * LIMIT;
+        Article.count(function (err, count) {
+            if (err) { console.error(err); res.send(400); return; }
+            Article.find().sort('-date').skip(toSkip).limit(LIMIT).exec(function (err, articles) {
+                if (err) {
+                    console.error(err);
+                    res.send(404);
+                    return;
+                }
 
-            articles = articles.map(function (x) {
-                x.content = marked(x.content);
-                return x;
+                articles = articles.map(function (x) {
+                    x.content = marked(x.content);
+                    return x;
+                });
+                var isFirst = page == 1;
+                var prev = !isFirst ? page - 1 : "#";
+                var isLast = toSkip + LIMIT >= count;
+                var next = !isLast ? page + 1 : "#";
+                res.render('index', {
+                    articles: articles,
+                    first: isFirst,
+                    prev: prev,
+                    last: isLast,
+                    next: next});
             });
-            res.render('index', {articles: articles});
         });
     }
 }

@@ -11,3 +11,17 @@
     <div class="article-url"><a href="{{url}}">{{url}}</a></div>
 </div>
 {{/each}}
+<div class="row">
+    <ul class="pager">
+        {{#if first}}
+            <li class="disabled"><a>Previous</a></li>
+        {{else}}
+            <li><a href="/?page={{prev}}">Previous</a></li>
+        {{/if}}
+        {{#if last}}
+            <li class="disabled"><a>Next</a></li>
+        {{else}}
+            <li><a href="/?page={{next}}">Next</a></li>
+        {{/if}}
+    </ul>
+</div>
